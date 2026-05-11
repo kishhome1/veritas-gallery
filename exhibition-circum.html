@@ -83,10 +83,12 @@ body {
   overflow: hidden;
   position: relative;
   z-index: 1;
+  max-height: calc(100vh - 64px);
 }
 .hero-text {
   display: flex; flex-direction: column; justify-content: center;
   padding: 80px 64px;
+  overflow: hidden;
 }
 .hero-eyebrow {
   font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
@@ -292,12 +294,12 @@ footer {
 <body>
 <nav class="nav">
   <a href="index.html" class="nav-logo">Veritas Gallery</a>
-  <ul class="nav-links"><li><a href="about.html" data-key="nav-about" data-ru="О галерее" data-en="About">О галерее</a></li>
-<li><a href="exhibitions.html" class="active" data-key="nav-exh" data-ru="Выставки" data-en="Exhibitions">Выставки</a></li>
-<li><a href="residency.html" data-key="nav-res" data-ru="Арт-резиденство" data-en="Residency">Арт-резиденство</a></li>
-<li><a href="filmclub.html" data-key="nav-film" data-ru="Киноклуб" data-en="Film Club">Киноклуб</a></li>
-<li><a href="artclub.html" data-key="nav-ac" data-ru="Арт-клуб" data-en="Art Club">Арт-клуб</a></li>
-<li><a href="contact.html" data-key="nav-cont" data-ru="Контакты" data-en="Contact">Контакты</a></li>
+  <ul class="nav-links"><li><a href="about.html" data-ru="О галерее" data-en="About">О галерее</a></li>
+<li><a href="exhibitions.html" class="active" data-ru="Выставки" data-en="Exhibitions">Выставки</a></li>
+<li><a href="residency.html" data-ru="Арт-резиденство" data-en="Residency">Арт-резиденство</a></li>
+<li><a href="filmclub.html" data-ru="Киноклуб" data-en="Film Club">Киноклуб</a></li>
+<li><a href="artclub.html" data-ru="Арт-клуб" data-en="Art Club">Арт-клуб</a></li>
+<li><a href="contact.html" data-ru="Контакты" data-en="Contact">Контакты</a></li>
 </ul>
   <div class="nav-lang">
     <button id="btnRu" class="active" onclick="setLang('ru')">RU</button>
@@ -308,15 +310,15 @@ footer {
 <div class="page">
 
 <section class="section">
-  <a href="exhibitions.html" style="font-size:9px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--grey);display:inline-flex;align-items:center;gap:8px;margin-bottom:48px">← Все выставки</a>
+  <a href="exhibitions.html" style="font-size:9px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--grey);display:inline-flex;align-items:center;gap:8px;margin-bottom:48px" data-ru="← Все выставки" data-en="← All exhibitions">← Все выставки</a>
   <div class="two-col">
     <div class="reveal">
-      <div class="section-label">2024</div>
-      <h2 data-html="1">Circumflexus:<br><em>И-го-го</em></h2>
+      <div class="section-label" data-ru="2024" data-en="2024">2024</div>
+      <h2 data-ru="Circumflexus:<br><em>И-го-го</em>" data-en="Circumflexus:<br><em>Whirl</em>" data-html="1">Circumflexus:<br><em>И-го-го</em></h2>
       <div class="rule"></div>
-      <p class="lead">Инсталляционный проект современной художницы Шуры Костиковой произрастает на стыке критической деконструкции механизма воспроизводства эмоций и архаичной практики наблюдения за круговым движением.</p>
-      <p class="lead">В центре внимания — образ детской карусели, служащий отправной точкой для широкого дискурса о манипуляции эмоциями.</p>
-      <p class="lead">Образ карусели указывает на бесконечное круговое движение, на образование некоторого повторяющегося цикла, которому подвержен человек.</p>
+      <p class="lead" data-ru="Инсталляционный проект современной художницы Шуры Костиковой произрастает на стыке критической деконструкции механизма воспроизводства эмоций и архаичной практики наблюдения за круговым движением." data-en="The installation project by contemporary artist Shura Kostikova grows at the intersection of a critical deconstruction of the mechanism of emotion reproduction and the archaic practice of observing circular movement.">Инсталляционный проект современной художницы Шуры Костиковой произрастает на стыке критической деконструкции механизма воспроизводства эмоций и архаичной практики наблюдения за круговым движением.</p>
+      <p class="lead" data-ru="В центре внимания — образ детской карусели, служащий отправной точкой для широкого дискурса о манипуляции эмоциями." data-en="At the centre is the image of a children's carousel, serving as the starting point for a broad discourse on the manipulation of emotions.">В центре внимания — образ детской карусели, служащий отправной точкой для широкого дискурса о манипуляции эмоциями.</p>
+      <p class="lead" data-ru="Образ карусели указывает на бесконечное круговое движение, на образование некоторого повторяющегося цикла, которому подвержен человек." data-en="The carousel image points to endless circular motion — the formation of a recurring cycle to which every person is subject.">Образ карусели указывает на бесконечное круговое движение, на образование некоторого повторяющегося цикла, которому подвержен человек.</p>
     </div>
     <div class="reveal"><img src="images/circum1.jpg" alt="Circumflexus" class="img-cover aspect-3-4"></div>
   </div>
@@ -327,30 +329,33 @@ footer {
     <img src="images/gallery2.jpg" alt="" class="img-cover aspect-4-3">
   </div>
 </section>
+
 </div>
 <footer>
   <div class="footer-logo">Veritas Gallery</div>
-  <div class="footer-copy">© 2025 Veritas Gallery · Галерея современного искусства</div>
+  <div class="footer-copy" data-ru="© 2025 Veritas Gallery · Галерея современного искусства" data-en="© 2025 Veritas Gallery · Contemporary Art Gallery">© 2025 Veritas Gallery · Галерея современного искусства</div>
   <div class="footer-links">
     <a href="https://t.me/yesenia_art">Telegram</a>
     <a href="mailto:veritas.gallery@internet.ru">E-mail</a>
   </div>
 </footer>
 <script>
-const PAGE_T={};
 
-const T={ru:{'nav-about':'О галерее','nav-exh':'Выставки','nav-res':'Арт-резиденство','nav-film':'Киноклуб','nav-ac':'Арт-клуб','nav-cont':'Контакты'},en:{'nav-about':'About','nav-exh':'Exhibitions','nav-res':'Residency','nav-film':'Film Club','nav-ac':'Art Club','nav-cont':'Contact'}};
-const EXTRA_T=window.PAGE_T||{};
 function setLang(lang){
   localStorage.setItem('vg_lang',lang);
   document.getElementById('btnRu').classList.toggle('active',lang==='ru');
   document.getElementById('btnEn').classList.toggle('active',lang==='en');
-  const all={...T[lang],...((EXTRA_T[lang])||{})};
-  document.querySelectorAll('[data-key]').forEach(el=>{
-    const v=all[el.dataset.key];if(!v)return;
-    if(el.dataset.html)el.innerHTML=v;
-    else if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.placeholder=v;
-    else el.textContent=v;
+  const all = window.TRANSLATIONS && window.TRANSLATIONS[lang] ? window.TRANSLATIONS[lang] : {};
+  document.querySelectorAll('[data-ru]').forEach(el=>{
+    if(lang==='ru' && el.dataset.ru) {
+      if(el.dataset.html) el.innerHTML=el.dataset.ru;
+      else if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') el.placeholder=el.dataset.ru;
+      else el.textContent=el.dataset.ru;
+    } else if(lang==='en' && el.dataset.en) {
+      if(el.dataset.html) el.innerHTML=el.dataset.en;
+      else if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') el.placeholder=el.dataset.en;
+      else el.textContent=el.dataset.en;
+    }
   });
 }
 (function(){setLang(localStorage.getItem('vg_lang')||'ru');})();

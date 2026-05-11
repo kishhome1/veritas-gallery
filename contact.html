@@ -83,10 +83,12 @@ body {
   overflow: hidden;
   position: relative;
   z-index: 1;
+  max-height: calc(100vh - 64px);
 }
 .hero-text {
   display: flex; flex-direction: column; justify-content: center;
   padding: 80px 64px;
+  overflow: hidden;
 }
 .hero-eyebrow {
   font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
@@ -292,12 +294,12 @@ footer {
 <body>
 <nav class="nav">
   <a href="index.html" class="nav-logo">Veritas Gallery</a>
-  <ul class="nav-links"><li><a href="about.html" data-key="nav-about" data-ru="О галерее" data-en="About">О галерее</a></li>
-<li><a href="exhibitions.html" data-key="nav-exh" data-ru="Выставки" data-en="Exhibitions">Выставки</a></li>
-<li><a href="residency.html" data-key="nav-res" data-ru="Арт-резиденство" data-en="Residency">Арт-резиденство</a></li>
-<li><a href="filmclub.html" data-key="nav-film" data-ru="Киноклуб" data-en="Film Club">Киноклуб</a></li>
-<li><a href="artclub.html" data-key="nav-ac" data-ru="Арт-клуб" data-en="Art Club">Арт-клуб</a></li>
-<li><a href="contact.html" class="active" data-key="nav-cont" data-ru="Контакты" data-en="Contact">Контакты</a></li>
+  <ul class="nav-links"><li><a href="about.html" data-ru="О галерее" data-en="About">О галерее</a></li>
+<li><a href="exhibitions.html" data-ru="Выставки" data-en="Exhibitions">Выставки</a></li>
+<li><a href="residency.html" data-ru="Арт-резиденство" data-en="Residency">Арт-резиденство</a></li>
+<li><a href="filmclub.html" data-ru="Киноклуб" data-en="Film Club">Киноклуб</a></li>
+<li><a href="artclub.html" data-ru="Арт-клуб" data-en="Art Club">Арт-клуб</a></li>
+<li><a href="contact.html" class="active" data-ru="Контакты" data-en="Contact">Контакты</a></li>
 </ul>
   <div class="nav-lang">
     <button id="btnRu" class="active" onclick="setLang('ru')">RU</button>
@@ -309,7 +311,7 @@ footer {
 
 <section class="section" style="padding-bottom:0">
   <div class="reveal">
-    <h2 data-html="1">Давайте<br><em>дружить</em></h2>
+    <h2 data-ru="Давайте<br><em>дружить</em>" data-en="Let's<br><em>Connect</em>" data-html="1">Давайте<br><em>дружить</em></h2>
     <div class="rule"></div>
   </div>
 </section>
@@ -318,7 +320,7 @@ footer {
   <img src="images/ceo2.jpg" alt="Есения Веритас" style="width:100%;height:100%;object-fit:cover;object-position:center 30%">
   <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(30,29,27,0.5) 0%,transparent 50%)"></div>
   <div style="position:absolute;left:64px;bottom:40px">
-    <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(247,245,242,0.6);margin-bottom:8px">Основатель</div>
+    <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(247,245,242,0.6);margin-bottom:8px" data-ru="Основатель" data-en="Founder">Основатель</div>
     <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#f7f5f2">Есения Веритас</div>
   </div>
 </div>
@@ -326,46 +328,61 @@ footer {
 <section class="section" style="padding-top:0">
   <div class="two-col">
     <div class="reveal">
-      <div class="section-label" style="margin-bottom:24px">Контакты</div>
-      <div class="contact-row"><div class="contact-key">Адрес</div><div class="contact-val">м. Тульская / Нагатинская,<br>1-й Нагатинский проезд, 14</div></div>
-      <div class="contact-row"><div class="contact-key">Телефон</div><a href="tel:+79881881558" class="contact-val">+7 988 188-15-58</a></div>
-      <div class="contact-row"><div class="contact-key">Telegram</div><a href="https://t.me/yesenia_art" class="contact-val">@yesenia_art</a></div>
-      <div class="contact-row"><div class="contact-key">E-mail</div><a href="mailto:veritas.gallery@internet.ru" class="contact-val">veritas.gallery@internet.ru</a></div>
+      <div class="section-label" data-ru="Контакты" data-en="Contact Details">Контакты</div>
+      <div style="margin-top:24px">
+        <div class="contact-row"><div class="contact-key" data-ru="Адрес" data-en="Address">Адрес</div><div class="contact-val" data-ru="м. Тульская / Нагатинская,<br>1-й Нагатинский проезд, 14" data-en="Moscow, 1st Nagatinskiy Proyezd, 14<br>(Metro: Tulskaya / Nagatinskaya)" data-html="1">м. Тульская / Нагатинская,<br>1-й Нагатинский проезд, 14</div></div>
+        <div class="contact-row"><div class="contact-key" data-ru="Телефон" data-en="Phone">Телефон</div><a href="tel:+79881881558" class="contact-val">+7 988 188-15-58</a></div>
+        <div class="contact-row"><div class="contact-key">Telegram</div><a href="https://t.me/yesenia_art" class="contact-val">@yesenia_art</a></div>
+        <div class="contact-row"><div class="contact-key">E-mail</div><a href="mailto:veritas.gallery@internet.ru" class="contact-val">veritas.gallery@internet.ru</a></div>
+      </div>
     </div>
     <div class="reveal">
-      <div class="section-label" style="margin-bottom:24px">Написать нам</div>
-      <div class="form-group"><label>Имя</label><input type="text" placeholder="Ваше имя"></div>
-      <div class="form-group"><label>E-mail</label><input type="email" placeholder="email@example.com"></div>
-      <div class="form-group"><label>Тема</label><select><option>Арт-резиденство</option><option>Арт-клуб</option><option>Киноклуб</option><option>Выставки</option><option>Сотрудничество</option></select></div>
-      <div class="form-group"><label>Сообщение</label><textarea placeholder="Расскажите о себе..."></textarea></div>
-      <button class="btn btn-dark" style="cursor:pointer">Отправить</button>
+      <div class="section-label" data-ru="Написать нам" data-en="Write to Us">Написать нам</div>
+      <div style="margin-top:24px">
+        <div class="form-group"><label data-ru="Имя" data-en="Name">Имя</label><input type="text" data-ru="Ваше имя" data-en="Your name" placeholder="Ваше имя"></div>
+        <div class="form-group"><label>E-mail</label><input type="email" placeholder="email@example.com"></div>
+        <div class="form-group"><label data-ru="Тема" data-en="Subject">Тема</label>
+          <select>
+            <option data-ru="Арт-резиденство" data-en="Art Residency">Арт-резиденство</option>
+            <option data-ru="Арт-клуб" data-en="Art Club">Арт-клуб</option>
+            <option data-ru="Киноклуб" data-en="Film Club">Киноклуб</option>
+            <option data-ru="Выставки" data-en="Exhibitions">Выставки</option>
+            <option data-ru="Сотрудничество" data-en="Collaboration">Сотрудничество</option>
+          </select>
+        </div>
+        <div class="form-group"><label data-ru="Сообщение" data-en="Message">Сообщение</label><textarea data-ru="Расскажите о себе..." data-en="Tell us about yourself..." placeholder="Расскажите о себе..."></textarea></div>
+        <button class="btn btn-dark" style="cursor:pointer" data-ru="Отправить" data-en="Send">Отправить</button>
+      </div>
     </div>
   </div>
 </section>
+
 </div>
 <footer>
   <div class="footer-logo">Veritas Gallery</div>
-  <div class="footer-copy">© 2025 Veritas Gallery · Галерея современного искусства</div>
+  <div class="footer-copy" data-ru="© 2025 Veritas Gallery · Галерея современного искусства" data-en="© 2025 Veritas Gallery · Contemporary Art Gallery">© 2025 Veritas Gallery · Галерея современного искусства</div>
   <div class="footer-links">
     <a href="https://t.me/yesenia_art">Telegram</a>
     <a href="mailto:veritas.gallery@internet.ru">E-mail</a>
   </div>
 </footer>
 <script>
-const PAGE_T={};
 
-const T={ru:{'nav-about':'О галерее','nav-exh':'Выставки','nav-res':'Арт-резиденство','nav-film':'Киноклуб','nav-ac':'Арт-клуб','nav-cont':'Контакты'},en:{'nav-about':'About','nav-exh':'Exhibitions','nav-res':'Residency','nav-film':'Film Club','nav-ac':'Art Club','nav-cont':'Contact'}};
-const EXTRA_T=window.PAGE_T||{};
 function setLang(lang){
   localStorage.setItem('vg_lang',lang);
   document.getElementById('btnRu').classList.toggle('active',lang==='ru');
   document.getElementById('btnEn').classList.toggle('active',lang==='en');
-  const all={...T[lang],...((EXTRA_T[lang])||{})};
-  document.querySelectorAll('[data-key]').forEach(el=>{
-    const v=all[el.dataset.key];if(!v)return;
-    if(el.dataset.html)el.innerHTML=v;
-    else if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.placeholder=v;
-    else el.textContent=v;
+  const all = window.TRANSLATIONS && window.TRANSLATIONS[lang] ? window.TRANSLATIONS[lang] : {};
+  document.querySelectorAll('[data-ru]').forEach(el=>{
+    if(lang==='ru' && el.dataset.ru) {
+      if(el.dataset.html) el.innerHTML=el.dataset.ru;
+      else if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') el.placeholder=el.dataset.ru;
+      else el.textContent=el.dataset.ru;
+    } else if(lang==='en' && el.dataset.en) {
+      if(el.dataset.html) el.innerHTML=el.dataset.en;
+      else if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') el.placeholder=el.dataset.en;
+      else el.textContent=el.dataset.en;
+    }
   });
 }
 (function(){setLang(localStorage.getItem('vg_lang')||'ru');})();

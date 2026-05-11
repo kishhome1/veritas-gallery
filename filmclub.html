@@ -83,10 +83,12 @@ body {
   overflow: hidden;
   position: relative;
   z-index: 1;
+  max-height: calc(100vh - 64px);
 }
 .hero-text {
   display: flex; flex-direction: column; justify-content: center;
   padding: 80px 64px;
+  overflow: hidden;
 }
 .hero-eyebrow {
   font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
@@ -292,12 +294,12 @@ footer {
 <body>
 <nav class="nav">
   <a href="index.html" class="nav-logo">Veritas Gallery</a>
-  <ul class="nav-links"><li><a href="about.html" data-key="nav-about" data-ru="О галерее" data-en="About">О галерее</a></li>
-<li><a href="exhibitions.html" data-key="nav-exh" data-ru="Выставки" data-en="Exhibitions">Выставки</a></li>
-<li><a href="residency.html" data-key="nav-res" data-ru="Арт-резиденство" data-en="Residency">Арт-резиденство</a></li>
-<li><a href="filmclub.html" class="active" data-key="nav-film" data-ru="Киноклуб" data-en="Film Club">Киноклуб</a></li>
-<li><a href="artclub.html" data-key="nav-ac" data-ru="Арт-клуб" data-en="Art Club">Арт-клуб</a></li>
-<li><a href="contact.html" data-key="nav-cont" data-ru="Контакты" data-en="Contact">Контакты</a></li>
+  <ul class="nav-links"><li><a href="about.html" data-ru="О галерее" data-en="About">О галерее</a></li>
+<li><a href="exhibitions.html" data-ru="Выставки" data-en="Exhibitions">Выставки</a></li>
+<li><a href="residency.html" data-ru="Арт-резиденство" data-en="Residency">Арт-резиденство</a></li>
+<li><a href="filmclub.html" class="active" data-ru="Киноклуб" data-en="Film Club">Киноклуб</a></li>
+<li><a href="artclub.html" data-ru="Арт-клуб" data-en="Art Club">Арт-клуб</a></li>
+<li><a href="contact.html" data-ru="Контакты" data-en="Contact">Контакты</a></li>
 </ul>
   <div class="nav-lang">
     <button id="btnRu" class="active" onclick="setLang('ru')">RU</button>
@@ -310,43 +312,46 @@ footer {
 <section class="section">
   <div class="two-col two-col-center">
     <div class="reveal">
-      <div class="section-label">Киноклуб</div>
-      <h2 data-html="1">100 шедевров<br><em>авторского кино</em></h2>
+      <div class="section-label" data-ru="Киноклуб" data-en="Film Club">Киноклуб</div>
+      <h2 data-ru="100 шедевров<br><em>авторского кино</em>" data-en="100 Masterpieces<br><em>of Auteur Cinema</em>" data-html="1">100 шедевров<br><em>авторского кино</em></h2>
       <div class="rule"></div>
-      <p class="lead">Киноклуб Veritas Gallery — путешествие через 100 шедевров авторского кино в течение года. Мы разбираем великие фильмы как произведения искусства: визуальный язык, философию, место в истории кинематографа.</p>
-      <p class="lead">Каждый показ сочетает просмотр с экспертным разбором, дискуссией и культурным контекстом. Искусство смотреть и понимать кино.</p>
-      <div class="actions" style="margin-top:40px"><a href="contact.html" class="btn btn-dark">Присоединиться</a></div>
+      <p class="lead" data-ru="Киноклуб Veritas Gallery — путешествие через 100 шедевров авторского кино в течение года. Мы разбираем великие фильмы как произведения искусства: визуальный язык, философию, место в истории кинематографа." data-en="Veritas Gallery Film Club is a journey through 100 masterpieces of auteur cinema over one year. We explore great films as works of art: visual language, philosophy, place in the history of cinema.">Киноклуб Veritas Gallery — путешествие через 100 шедевров авторского кино в течение года. Мы разбираем великие фильмы как произведения искусства: визуальный язык, философию, место в истории кинематографа.</p>
+      <p class="lead" data-ru="Каждый показ сочетает просмотр с экспертным разбором, дискуссией и культурным контекстом. Искусство смотреть и понимать кино." data-en="Every screening combines viewing with expert analysis, discussion and cultural context. The art of watching and understanding cinema.">Каждый показ сочетает просмотр с экспертным разбором, дискуссией и культурным контекстом. Искусство смотреть и понимать кино.</p>
+      <div class="actions" style="margin-top:40px"><a href="contact.html" class="btn btn-dark" data-ru="Присоединиться" data-en="Join">Присоединиться</a></div>
     </div>
     <div class="reveal" style="background:var(--charcoal);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px">
       <div style="font-family:'Cormorant Garamond',serif;font-size:96px;font-weight:300;color:rgba(247,245,242,0.08);line-height:1">100</div>
-      <div style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(247,245,242,0.3)">шедевров авторского кино</div>
+      <div style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(247,245,242,0.3)" data-ru="шедевров авторского кино" data-en="masterpieces of auteur cinema">шедевров авторского кино</div>
     </div>
   </div>
 </section>
+
 </div>
 <footer>
   <div class="footer-logo">Veritas Gallery</div>
-  <div class="footer-copy">© 2025 Veritas Gallery · Галерея современного искусства</div>
+  <div class="footer-copy" data-ru="© 2025 Veritas Gallery · Галерея современного искусства" data-en="© 2025 Veritas Gallery · Contemporary Art Gallery">© 2025 Veritas Gallery · Галерея современного искусства</div>
   <div class="footer-links">
     <a href="https://t.me/yesenia_art">Telegram</a>
     <a href="mailto:veritas.gallery@internet.ru">E-mail</a>
   </div>
 </footer>
 <script>
-const PAGE_T={};
 
-const T={ru:{'nav-about':'О галерее','nav-exh':'Выставки','nav-res':'Арт-резиденство','nav-film':'Киноклуб','nav-ac':'Арт-клуб','nav-cont':'Контакты'},en:{'nav-about':'About','nav-exh':'Exhibitions','nav-res':'Residency','nav-film':'Film Club','nav-ac':'Art Club','nav-cont':'Contact'}};
-const EXTRA_T=window.PAGE_T||{};
 function setLang(lang){
   localStorage.setItem('vg_lang',lang);
   document.getElementById('btnRu').classList.toggle('active',lang==='ru');
   document.getElementById('btnEn').classList.toggle('active',lang==='en');
-  const all={...T[lang],...((EXTRA_T[lang])||{})};
-  document.querySelectorAll('[data-key]').forEach(el=>{
-    const v=all[el.dataset.key];if(!v)return;
-    if(el.dataset.html)el.innerHTML=v;
-    else if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.placeholder=v;
-    else el.textContent=v;
+  const all = window.TRANSLATIONS && window.TRANSLATIONS[lang] ? window.TRANSLATIONS[lang] : {};
+  document.querySelectorAll('[data-ru]').forEach(el=>{
+    if(lang==='ru' && el.dataset.ru) {
+      if(el.dataset.html) el.innerHTML=el.dataset.ru;
+      else if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') el.placeholder=el.dataset.ru;
+      else el.textContent=el.dataset.ru;
+    } else if(lang==='en' && el.dataset.en) {
+      if(el.dataset.html) el.innerHTML=el.dataset.en;
+      else if(el.tagName==='INPUT'||el.tagName==='TEXTAREA') el.placeholder=el.dataset.en;
+      else el.textContent=el.dataset.en;
+    }
   });
 }
 (function(){setLang(localStorage.getItem('vg_lang')||'ru');})();
