@@ -83,10 +83,12 @@ body {
   overflow: hidden;
   position: relative;
   z-index: 1;
+  max-height: calc(100vh - 64px);
 }
 .hero-text {
   display: flex; flex-direction: column; justify-content: center;
   padding: 80px 64px;
+  overflow: hidden;
 }
 .hero-eyebrow {
   font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
@@ -317,7 +319,7 @@ footer {
       <a href="about.html" class="btn btn-outline" data-key="h-btn2">О галерее</a>
     </div>
   </div>
-  <img src="images/gallery2.jpg" alt="Veritas Gallery" class="hero-image">
+  <img src="images/gallery1.jpg" alt="Veritas Gallery" class="hero-image">
 </section>
 <div class="marquee-wrap">
   <div class="marquee-track">
@@ -345,7 +347,8 @@ footer {
       </div>
     </div>
     <div class="reveal">
-      <img src="images/gallery1.jpg" alt="Veritas Gallery" class="img-cover aspect-4-3">
+      <p class="lead" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.6;color:var(--charcoal)">"Самый главный актив галереи и наибольшая её ценность — это люди как носители талантов, способных расширять границы современного искусства"</p>
+      <div style="margin-top:24px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)">— Есения Веритас, основатель</div>
     </div>
   </div>
 </section>
