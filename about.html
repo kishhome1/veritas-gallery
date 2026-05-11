@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>О галерее — Veritas Gallery</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #f7f5f2;
+  --white: #ffffff;
+  --charcoal: #1e1d1b;
+  --grey: #7a7570;
+  --gold: #b8935a;
+  --border: rgba(30,29,27,0.1);
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Montserrat', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--white);
+  color: var(--charcoal);
+  font-family: var(--sans);
+  font-weight: 300;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  height: 64px;
+  display: flex; align-items: center;
+  padding: 0 48px;
+  gap: 48px;
+}
+.nav-logo {
+  font-family: var(--serif);
+  font-size: 16px; font-weight: 400;
+  letter-spacing: 3px; text-transform: uppercase;
+  text-decoration: none; color: var(--charcoal);
+  white-space: nowrap; flex-shrink: 0;
+}
+.nav-links {
+  display: flex; gap: 32px; list-style: none;
+  margin-left: auto;
+}
+.nav-links a {
+  font-size: 9px; font-weight: 400;
+  letter-spacing: 2.5px; text-transform: uppercase;
+  text-decoration: none; color: var(--grey);
+  transition: color 0.2s; white-space: nowrap;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--charcoal); }
+.nav-lang {
+  display: flex; gap: 8px; align-items: center;
+  margin-left: 32px; flex-shrink: 0;
+}
+.nav-lang button {
+  font-family: var(--sans); font-size: 9px; font-weight: 400;
+  letter-spacing: 2px; text-transform: uppercase;
+  background: none; border: none; cursor: pointer;
+  color: var(--grey); padding: 0; transition: color 0.2s;
+}
+.nav-lang button.active { color: var(--charcoal); font-weight: 500; }
+.nav-lang span { font-size: 9px; color: var(--border); }
+
+/* PAGE CONTENT */
+.page { padding-top: 64px; flex: 1; }
+
+/* HERO */
+.hero {
+  height: calc(100vh - 64px);
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.hero-text {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 64px;
+}
+.hero-eyebrow {
+  font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 28px;
+}
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(48px, 5.5vw, 80px);
+  font-weight: 300; line-height: 1.05;
+  margin-bottom: 36px;
+}
+.hero-title em { font-style: italic; color: var(--grey); }
+.hero-body {
+  font-size: 13px; line-height: 1.9; color: var(--grey);
+  max-width: 420px; margin-bottom: 48px;
+}
+.hero-image {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.hero-image-div {
+  width: 100%; height: 100%; background: var(--cream);
+}
+
+/* SECTION */
+.section { padding: 96px 64px; }
+.section-sm { padding: 64px 64px; }
+.section-dark { background: var(--charcoal); color: #f7f5f2; }
+.section-cream { background: var(--cream); }
+
+.section-label {
+  font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px;
+}
+.section-label-light { color: rgba(247,245,242,0.5); }
+
+h1, h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 3.5vw, 52px);
+  font-weight: 300; line-height: 1.1; letter-spacing: 0.3px;
+}
+h1 em, h2 em { font-style: italic; color: var(--grey); }
+.dark h2 em { color: rgba(247,245,242,0.4); }
+
+.lead {
+  font-size: 14px; line-height: 1.9; color: var(--grey);
+  max-width: 600px; margin-top: 32px;
+}
+.lead + .lead { margin-top: 20px; }
+.dark .lead { color: rgba(247,245,242,0.55); }
+
+.rule { width: 36px; height: 1px; background: var(--gold); margin: 28px 0; }
+
+/* TWO COL */
+.two-col {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: start;
+}
+.two-col-center { align-items: center; }
+
+/* ACTIONS */
+.actions { display: flex; gap: 20px; align-items: center; margin-top: 40px; }
+.btn {
+  font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+  text-decoration: none; padding: 14px 32px;
+  transition: all 0.2s; cursor: pointer; border: none;
+  font-family: var(--sans);
+}
+.btn-dark { background: var(--charcoal); color: #f7f5f2; }
+.btn-dark:hover { background: var(--gold); }
+.btn-outline {
+  background: none; color: var(--charcoal);
+  border-bottom: 1px solid var(--charcoal); padding: 0 0 3px;
+}
+.btn-outline:hover { color: var(--gold); border-color: var(--gold); }
+.btn-outline-light {
+  background: none; color: #f7f5f2;
+  border-bottom: 1px solid rgba(247,245,242,0.4); padding: 0 0 3px;
+}
+.btn-outline-light:hover { color: var(--gold); border-color: var(--gold); }
+
+/* IMAGE */
+.img-full { width: 100%; display: block; }
+.img-cover { width: 100%; object-fit: cover; display: block; }
+.aspect-3-4 { aspect-ratio: 3/4; }
+.aspect-4-3 { aspect-ratio: 4/3; }
+.aspect-sq { aspect-ratio: 1/1; }
+.aspect-16-9 { aspect-ratio: 16/9; }
+
+/* GRID 3 */
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; }
+
+/* MARQUEE */
+.marquee-wrap {
+  overflow: hidden; border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0; background: var(--cream);
+}
+.marquee-track {
+  display: flex; gap: 64px; white-space: nowrap;
+  animation: marquee 28s linear infinite;
+}
+.marquee-item { font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--grey); flex-shrink:0; }
+.marquee-dot { color: var(--gold); }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* STATS */
+.stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border-top: 1px solid var(--border); margin-top: 56px; }
+.stat { padding: 32px 0; border-right: 1px solid var(--border); padding-right: 32px; }
+.stat:last-child { border-right: none; }
+.stat-num { font-family: var(--serif); font-size: 44px; font-weight: 300; line-height: 1; }
+.stat-label { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--grey); margin-top: 6px; }
+
+/* ITEMS LIST */
+.items-list { margin-top: 56px; }
+.item-row {
+  display: grid; grid-template-columns: 64px 1fr 1fr;
+  gap: 32px; padding: 32px 0; border-top: 1px solid var(--border);
+  align-items: start; transition: background 0.2s;
+}
+.item-row:last-child { border-bottom: 1px solid var(--border); }
+.item-num { font-family: var(--serif); font-size: 32px; font-weight: 300; color: rgba(30,29,27,0.12); }
+.item-title { font-family: var(--serif); font-size: 20px; font-weight: 300; }
+.item-text { font-size: 12px; line-height: 1.8; color: var(--grey); }
+
+/* CARD */
+.card { overflow: hidden; cursor: pointer; }
+.card-img { width: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+.card:hover .card-img { transform: scale(1.03); }
+.card-body { padding: 20px 0; }
+.card-year { font-size: 9px; letter-spacing: 2px; color: var(--gold); margin-bottom: 6px; }
+.card-title { font-family: var(--serif); font-size: 22px; font-weight: 300; line-height: 1.2; margin-bottom: 10px; }
+.card-desc { font-size: 12px; line-height: 1.7; color: var(--grey); }
+.card-link {
+  display: inline-block; margin-top: 16px;
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none; color: var(--charcoal);
+  border-bottom: 1px solid var(--charcoal);
+  padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
+}
+.card-link:hover { color: var(--gold); border-color: var(--gold); }
+
+/* QUOTE */
+.quote-block {
+  background: var(--charcoal); color: #f7f5f2;
+  padding: 48px; font-family: var(--serif);
+  font-style: italic; font-size: 18px; line-height: 1.65;
+}
+
+/* CONTACT BLOCK */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+.contact-row { display: grid; grid-template-columns: 120px 1fr; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+.contact-key { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--grey); padding-top: 3px; }
+.contact-val { font-family: var(--serif); font-size: 17px; font-weight: 300; text-decoration: none; color: var(--charcoal); transition: color 0.2s; }
+a.contact-val:hover { color: var(--gold); }
+
+/* FORM */
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--grey); margin-bottom: 6px; }
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%; background: none; border: none;
+  border-bottom: 1px solid var(--border); padding: 10px 0;
+  font-family: var(--sans); font-size: 13px; font-weight: 300;
+  color: var(--charcoal); outline: none; transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group textarea:focus { border-color: var(--charcoal); }
+.form-group textarea { height: 90px; resize: none; }
+
+/* FOOTER */
+footer {
+  background: var(--charcoal); color: rgba(247,245,242,0.5);
+  padding: 40px 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-logo { font-family: var(--serif); font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: #f7f5f2; }
+.footer-copy { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; color: rgba(247,245,242,0.4); transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav { padding: 0 20px; gap: 16px; }
+  .nav-links { gap: 16px; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-image, .hero-image-div { display: none; }
+  .section, .section-sm { padding: 60px 24px; }
+  .two-col, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .item-row { grid-template-columns: 48px 1fr; }
+  .item-text { display: none; }
+  footer { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="nav-logo">Veritas Gallery</a>
+  <ul class="nav-links"><li><a href="about.html" class="active" data-key="nav-about" data-ru="О галерее" data-en="About">О галерее</a></li>
+<li><a href="exhibitions.html" data-key="nav-exh" data-ru="Выставки" data-en="Exhibitions">Выставки</a></li>
+<li><a href="residency.html" data-key="nav-res" data-ru="Арт-резиденство" data-en="Residency">Арт-резиденство</a></li>
+<li><a href="filmclub.html" data-key="nav-film" data-ru="Киноклуб" data-en="Film Club">Киноклуб</a></li>
+<li><a href="artclub.html" data-key="nav-ac" data-ru="Арт-клуб" data-en="Art Club">Арт-клуб</a></li>
+<li><a href="contact.html" data-key="nav-cont" data-ru="Контакты" data-en="Contact">Контакты</a></li>
+</ul>
+  <div class="nav-lang">
+    <button id="btnRu" class="active" onclick="setLang('ru')">RU</button>
+    <span>/</span>
+    <button id="btnEn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+<div class="page">
+
+<section class="section">
+  <div class="two-col">
+    <div class="reveal">
+      <div class="section-label">О галерее</div>
+      <h2 data-html="1">Новый<br><em>креативный хаб</em></h2>
+      <div class="rule"></div>
+      <p class="lead">Veritas Gallery — уникальный оазис современного искусства, выходящего за рамки привычных границ, где встречаются смелые идеи и яркие визуальные образы.</p>
+      <p class="lead">Галерея не просто демонстрирует искусство, но и создаёт пространство для диалога, сотрудничая с разнообразными организациями для проведения выставок и культурных мероприятий.</p>
+      <p class="lead">В Veritas Gallery искусство оживает как музыкальный аккорд, вызывая глубокие эмоции и провоцируя философские размышления.</p>
+      <div class="stats">
+        <div class="stat"><div class="stat-num">1200+</div><div class="stat-label">Посетителей</div></div>
+        <div class="stat"><div class="stat-num">3</div><div class="stat-label">Выставки</div></div>
+        <div class="stat"><div class="stat-num">2</div><div class="stat-label">Страны</div></div>
+        <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Возможностей</div></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <img src="images/gallery1.jpg" alt="Veritas Gallery" class="img-cover aspect-3-4" style="margin-bottom:16px">
+      <div class="quote-block">"Самый главный актив галереи и наибольшая её ценность — это люди как носители талантов, способных расширять границы современного искусства"</div>
+    </div>
+  </div>
+</section>
+<section class="section section-cream">
+  <div class="two-col two-col-center">
+    <div class="reveal"><img src="images/ceo1.jpg" alt="Есения Веритас" class="img-cover aspect-3-4"></div>
+    <div class="reveal">
+      <div class="section-label">Основатель & CEO</div>
+      <h2 data-html="1">Есения<br><em>Веритас</em></h2>
+      <div class="rule"></div>
+      <p class="lead">Основатель и руководитель Veritas Gallery, олицетворяет динамику и дух современного искусства. Настоящий архитектор креативного пространства, собирающий художников со всех уголков Европы и Южной Америки.</p>
+      <p class="lead">Как аспирант МГУ/РАН и исследователь креативной экономики, транслирует новое понимание искусства, превращая галерею в лабораторию идей.</p>
+      <p class="lead">Оставаясь смысл-сеттером и визионером, превращает каждую выставку в яркое событие культурной жизни.</p>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="section-label">Формы диалога с искусством</div>
+  <h2 style="margin-top:14px" data-html="1">Ликбез и<br><em>медитативные практики</em></h2>
+  <div class="items-list">
+    <div class="item-row reveal"><div class="item-num">01</div><div class="item-title">Арт-медиация</div><div class="item-text">Погружение в произведения искусства через диалог с куратором.</div></div>
+    <div class="item-row reveal"><div class="item-num">02</div><div class="item-title">Лекции и ликбез</div><div class="item-text">Образовательный цикл: от истории современного искусства до практик коллекционирования.</div></div>
+    <div class="item-row reveal"><div class="item-num">03</div><div class="item-title">Медитативные практики</div><div class="item-text">Созерцательный опыт в пространстве галереи. Искусство как путь к внутреннему диалогу.</div></div>
+    <div class="item-row reveal"><div class="item-num">04</div><div class="item-title">Дискуссионный клуб</div><div class="item-text">Открытые дискуссии на пересечении искусства, философии и культуры.</div></div>
+  </div>
+</section>
+</div>
+<footer>
+  <div class="footer-logo">Veritas Gallery</div>
+  <div class="footer-copy">© 2025 Veritas Gallery · Галерея современного искусства</div>
+  <div class="footer-links">
+    <a href="https://t.me/yesenia_art">Telegram</a>
+    <a href="mailto:veritas.gallery@internet.ru">E-mail</a>
+  </div>
+</footer>
+<script>
+const PAGE_T={};
+
+const T={ru:{'nav-about':'О галерее','nav-exh':'Выставки','nav-res':'Арт-резиденство','nav-film':'Киноклуб','nav-ac':'Арт-клуб','nav-cont':'Контакты'},en:{'nav-about':'About','nav-exh':'Exhibitions','nav-res':'Residency','nav-film':'Film Club','nav-ac':'Art Club','nav-cont':'Contact'}};
+const EXTRA_T=window.PAGE_T||{};
+function setLang(lang){
+  localStorage.setItem('vg_lang',lang);
+  document.getElementById('btnRu').classList.toggle('active',lang==='ru');
+  document.getElementById('btnEn').classList.toggle('active',lang==='en');
+  const all={...T[lang],...((EXTRA_T[lang])||{})};
+  document.querySelectorAll('[data-key]').forEach(el=>{
+    const v=all[el.dataset.key];if(!v)return;
+    if(el.dataset.html)el.innerHTML=v;
+    else if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.placeholder=v;
+    else el.textContent=v;
+  });
+}
+(function(){setLang(localStorage.getItem('vg_lang')||'ru');})();
+
+
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80);});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+</script>
+</body>
+</html>
